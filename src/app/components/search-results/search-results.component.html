@@ -1,0 +1,28 @@
+<div class="results-container">
+    <div class="results-container__content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Height</th>
+                  <th>Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result of (results$ | async)">
+                    <th>{{result.name}}</th>
+                    <th>{{result.height}}</th>
+                    <th>{{result.mass}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <ngb-pagination *ngIf="(avaliableItems$ | async) !> 10"
+            [page]="(page | async) ?? 1"
+            [collectionSize]="(avaliableItems$ | async) ?? 0"
+            (pageChange)="onPageChange($event)">
+        </ngb-pagination>
+    </div>
+    <div class="loading-spinner" *ngIf="isLoading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
