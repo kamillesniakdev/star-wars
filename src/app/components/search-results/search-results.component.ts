@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-results',
